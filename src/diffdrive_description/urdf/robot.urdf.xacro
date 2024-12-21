@@ -75,7 +75,7 @@
 
     <ros2_control name="IgnitionSystem" type="system">
         <hardware>
-            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+            <plugin>ign_ros2_control/IgnitionSystem</plugin>
         </hardware>
         <joint name="drivewhl_l_joint">
         <command_interface name="velocity">
@@ -96,7 +96,7 @@
     </ros2_control>
 
     <gazebo>
-        <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+        <plugin filename="ign_ros2_control-system" name="ign_ros2_control::IgnitionROS2ControlPlugin">
             <parameters>$(find diffdrive_bringup)/config/controllers.yaml</parameters>
             <ros>
                 <remapping>/diff_drive_controller/cmd_vel_unstamped:=/cmd_vel</remapping>
