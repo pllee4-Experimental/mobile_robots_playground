@@ -4,3 +4,4 @@
 [submodule "src/RGLGazeboPlugin"]
 	path = src/RGLGazeboPlugin
 	url = https://github.com/RobotecAI/RGLGazeboPlugin.git
+	branch = fortress
