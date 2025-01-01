@@ -184,7 +184,10 @@
     <gazebo reference="lidar_link">
         <sensor name="RGLLidar" type="custom">
             <plugin filename="RGLServerPluginInstance" name="rgl::RGLServerPluginInstance">
-                <range>245</range>
+                <range>
+                    <min>0</min>
+                    <max>245</max>
+                </range>
                 <update_rate>20</update_rate>
                 <update_on_paused_sim>false</update_on_paused_sim>
                 <topic>lidar</topic>
