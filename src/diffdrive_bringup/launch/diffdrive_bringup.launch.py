@@ -42,6 +42,9 @@ def generate_launch_description():
         name="rviz2",
         arguments=["-d", os.path.join(diffdrive_bringup_path, 'rviz', 'localization.rviz')],
         output="screen",
+        parameters=[
+            {'use_sim_time' : True}
+        ],
     )
 
     gazebo_spawn_robot = Node(
