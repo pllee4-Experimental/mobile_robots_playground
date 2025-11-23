@@ -15,23 +15,23 @@
 TRAJECTORY_BUILDER_2D = {
   use_imu_data = true,
   min_range = 0.,
-  max_range = 30.,
-  min_z = -0.8,
-  max_z = 2.,
+  max_range = 100,
+  min_z = -0.12,
+  max_z = 1.,
   missing_data_ray_length = 5.,
-  num_accumulated_range_data = 1,
+  num_accumulated_range_data = 2,
   voxel_filter_size = 0.025,
 
   adaptive_voxel_filter = {
     max_length = 0.5,
     min_num_points = 200,
-    max_range = 50.,
+    max_range = 25.,
   },
 
   loop_closure_adaptive_voxel_filter = {
     max_length = 0.9,
     min_num_points = 100,
-    max_range = 50.,
+    max_range = 25.,
   },
 
   use_online_correlative_scan_matching = false,
@@ -54,8 +54,8 @@ TRAJECTORY_BUILDER_2D = {
   },
 
   motion_filter = {
-    max_time_seconds = 5.,
-    max_distance_meters = 0.2,
+    max_time_seconds = 0.5,
+    max_distance_meters = 0.1,
     max_angle_radians = math.rad(1.),
   },
 
@@ -73,7 +73,7 @@ TRAJECTORY_BUILDER_2D = {
       pose_translation_weight = 1.,
       pose_rotation_weight = 1.,
       imu_acceleration_weight = 1.,
-      imu_rotation_weight = 1.,
+      imu_rotation_weight = 0.5,
       odometry_translation_weight = 1.,
       odometry_rotation_weight = 1.,
       solver_options = {
