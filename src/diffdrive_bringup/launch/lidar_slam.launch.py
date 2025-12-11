@@ -20,7 +20,7 @@ def generate_launch_description():
         executable="scanmatcher_node",
         parameters=[main_param_dir, {"use_sim_time": True}],
         remappings=[
-            ("/input_cloud", "lidar"),
+            ("/input_cloud", "/lidar"),
             ("/odom", "/odometry/filtered"),
         ],
         output="screen",

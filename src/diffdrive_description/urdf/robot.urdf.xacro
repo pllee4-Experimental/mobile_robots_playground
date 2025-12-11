@@ -103,6 +103,21 @@
                 <remapping>/diff_drive_controller/odom:=/odom</remapping>
             </ros>
         </plugin>
+
+        <!-- <plugin filename="libignition-gazebo-odometry-publisher-system.so" name="gz::sim:systems::OdometryPublisher">
+            <odom_publish_frequency>20</odom_publish_frequency>
+            <odom_topic>SimulationGroundTruthPose</odom_topic>
+        </plugin> -->
+
+        <!-- <plugin filename="gz-sim-odometry-publisher-system" name="gz::sim:systems::OdometryPublisher">
+            <odom_publish_frequency>20</odom_publish_frequency>
+            <odom_topic>SimulationGroundTruthPose</odom_topic>
+        </plugin> -->
+
+        <!-- <plugin filename="gz-sim-pose-publisher-system" name="gz::sim::systems::PosePublisher">
+            <use_pose_vector_msg>true</use_pose_vector_msg>
+             <publish_model_pose>true</publish_nested_model_pose>
+        </plugin> -->
     </gazebo>
 
     <link name="front_caster">
@@ -147,7 +162,7 @@
     <joint name="imu_joint" type="fixed">
         <parent link="base_link" />
         <child link="imu_link" />
-        <origin xyz="0 0 0.01" />
+        <origin xyz="0 0 0" />
     </joint>
 
     <gazebo reference="imu_link">
@@ -186,7 +201,7 @@
             <plugin filename="RGLServerPluginInstance" name="rgl::RGLServerPluginInstance">
                 <range>
                     <min>0</min>
-                    <max>245</max>
+                    <max>100</max>
                 </range>
                 <update_rate>20</update_rate>
                 <update_on_paused_sim>false</update_on_paused_sim>
@@ -207,4 +222,18 @@
             </plugin>
         </sensor>
     </gazebo>
+
+    <!-- <gazebo reference="base_link">
+        <plugin name="ignition::gazebo::systems::PosePublisher" filename="libignition-gazebo6-pose-publisher-system">
+            <ros>
+                <namespace>/robot</namespace>
+                <remapping>
+                    <remap from="pose" to="/robot/ground_truth/pose"/>
+                </remapping>
+            </ros>
+            <publish_nested_model_pose>true</publish_nested_model_pose>
+            <publish_link_pose>false</publish_link_pose>
+        </plugin>
+    </gazebo> -->
+
 </robot>
